@@ -29,7 +29,7 @@ var game = function () {
 
         var userGuess = event.key;
 
-        if (letters.indexOf(userGuess) > -1) {
+        if ((letters.indexOf(userGuess) > -1) && (lettersGuessed.indexOf(userGuess) < 0)) {
 
             for (var i = 0; i < letterCount; i++) {
                 if (letters[i] === userGuess) {
@@ -39,8 +39,10 @@ var game = function () {
                 }
             }
         } else {
-            guessesLeft--;
-            lettersGuessed.push(userGuess);
+            if (lettersGuessed.indexOf(userGuess) == -1) {
+                lettersGuessed.push(userGuess);
+                guessesLeft--;
+            }
             document.getElementById('attemptsLeft').innerHTML = guessesLeft;
             document.getElementById('guessedLetters').innerHTML = lettersGuessed + ' ';
         }
