@@ -1,9 +1,13 @@
 var wins = 0;
 var losses = 0;
+var list1 = [];
+var list2 = [];
+
 
 var newGame = function () {
     game();
 }
+
 
 var game = function () {
 
@@ -16,6 +20,7 @@ var game = function () {
     var guessesLeft = 10;
     var letterCount = letters.length;
     var correctGuess = 0;
+
 
     for (var i = 0; i < randWord.length; i++) {
 
@@ -42,9 +47,13 @@ var game = function () {
             if (lettersGuessed.indexOf(userGuess) == -1) {
                 lettersGuessed.push(userGuess);
                 guessesLeft--;
+                list1.push(userGuess + " ");
+                for (j = 0; j < list1.length; j++) {
+                    list2[j] = list1[j].toUpperCase();
+                }
             }
             document.getElementById('attemptsLeft').innerHTML = guessesLeft;
-            document.getElementById('guessedLetters').innerHTML = lettersGuessed + ' ';
+            document.getElementById('guessedLetters').innerHTML = list2.join("");
         }
 
         if (guessesLeft === 0) {
