@@ -22,7 +22,12 @@ function clearArray2() {
     return list2 = [];
 }
 
-
+document.getElementById('openKeyboard').addEventListener('click', function(){
+    var inputElement = document.getElementById('hiddenInput');
+    inputElement.style.visibility = 'visible'; // unhide the input
+    inputElement.focus(); // focus on it so keyboard pops
+    inputElement.style.visibility = 'hidden'; // hide it again
+});
 
 
 var game = function () {
