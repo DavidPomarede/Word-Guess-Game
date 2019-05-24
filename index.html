@@ -5,25 +5,85 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Hangman Game</title>
+
+    <style>
+        .invisibleClass {
+          visibility: hidden;
+        }
+
+        .visibleClass {
+          visibility: visible;
+        }
+
+        div {
+          color: aquamarine;
+          font-family: 'Permanent Marker', cursive;
+        }
+    </style>
   </head>
 
 
   <body>
 
-    <h1>Hangman Game</h1> 
-    <p>Guess what word I'm thinking of...</p>
-    <p>Press any key to get started!</p>
-    <br><hr>
-    <div id="currentWord"></div>
-    <div id="wins"></div>
-    <div id="losses"></div>
-    <div id="attemptsLeft"></div>
-    <div id="guessedLetters"></div>
-    <div id="message"></div>
+<div class="container">
+
+    <div class="row">
+        <div class="col col-md-8">
+          <div class="container">
+            <h1>Old Town Road Hangman Game</h1> 
+            <br>
+            <p>Guess what word I'm thinking of...</p>
+            <p>Press any key to get started!</p>
+            <br><hr>
+            <div id="currentWord"></div>
+            <div id="wins"></div>
+            <div id="losses"></div>
+            <div id="attemptsLeft"></div>
+            <div id="guessedLetters"></div>
+            <div id="message"></div>
+        </div>
+      </div>
+    </div>
     
+    <div class="row">
+        <div class="col col-md-8">
+          <div class="container">
+            <div class="row">
+              <div class="col col-md-4 align-self-start"></div>
+                <div class="col align-self-center col-md-6">
+                  <div class="container border border-success">
+                    <div class="row justify-content-end">
+                      <div class="col col-sm text-right">
+                        <div id="hangman4" class="hangManCLass invisibleClass">--</div>
+                        <div id="hangman4" class="hangManCLass invisibleClass">|  </div>
+                        <div id="hangman3" class="hangManCLass invisibleClass">|  </div>
+                        <br>
+                        <div id="hangman2" class="hangManCLass invisibleClass">|  </div>
+                        <br>
+                        <div id="hangman1" class="hangManCLass invisibleClass">--</div>
+                      </div>
+                      <div class="col col-md-6 text-left">
+                        <div id="hangman5" class="hangManCLass invisibleClass">-</div>
+                        <div id="hangman5" class="hangManCLass invisibleClass">|</div>
+                        <div id="hangman6" class="hangManCLass invisibleClass">O</div>
+                        <div id="hangman7" class="hangManCLass invisibleClass">/\</div>
+                        <div id="hangman8" class="hangManCLass invisibleClass text-right">|</div>
+                        <div id="hangman9" class="hangManCLass invisibleClass">/\</div>
+                        <div id="hangman10" class="hangManCLass invisibleClass"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+</div>
 
 
 

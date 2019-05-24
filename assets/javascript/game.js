@@ -3,6 +3,8 @@ var losses = 0;
 var list1 = [];
 var list2 = [];
 
+document.body.style.backgroundImage = "url('assets/images/otr1.jpg')";
+
 var audio1 = new Audio('assets/sounds/otr.mp3');
 var audio2 = new Audio('assets/sounds/guess.mp3');
 var audio3 = new Audio('assets/sounds/losses.mp3');
@@ -20,6 +22,9 @@ function clearArray2() {
     return list2 = [];
 }
 
+
+
+
 var game = function () {
 
 
@@ -32,9 +37,19 @@ var game = function () {
     var letterCount = letters.length;
     var correctGuess = 0;
     list2 = [0];
+    var hangCount = [];
 
+    function hangMan() {
+        hangCount++;
+        var hangmanTally = "hangman" + hangCount;
+        document.getElementById(hangmanTally).setAttribute("class", "visibleClass");
+    }
 
-    for (var i = 0; i < randWord.length; i++) {
+    function hangManReset() {
+        hangCount = [];
+    }
+
+    for (var k = 0; k < randWord.length; k++) {
 
         currentWord1.push('_ ');
 
@@ -58,6 +73,7 @@ var game = function () {
                     document.getElementById('currentWord').innerHTML = currentWord1.join(' ');
                     document.getElementById('attemptsLeft').innerHTML = guessesLeft;
                     audio2.play();
+                    hangMan();
                 }
             }
         } else {
@@ -66,12 +82,13 @@ var game = function () {
                 guessesLeft--;
                 audio4.play();
                 list1.push(userGuess + " ");
-                for (j = 0; j < list1.length; j++) {
-                    list2[j] = list1[j].toUpperCase();
+                for (l = 0; l < list1.length; l++) {
+                    list2[l] = list1[l].toUpperCase();
                 }
                 document.getElementById('attemptsLeft').innerHTML = guessesLeft;
                 document.getElementById('guessedLetters').innerHTML = list2.join(' ');
                 document.getElementById('guessedLetters').style.visibility='visible';
+                hangMan();
             }
 
         }
@@ -84,6 +101,7 @@ var game = function () {
             audio3.play();
             clearArray1();
             clearArray2();
+            hangManReset();
             newGame();
         }
 
@@ -95,12 +113,14 @@ var game = function () {
             audio1.play();
             clearArray1();
             clearArray2();
+            hangManReset();
             newGame();
             
         }
         console.log(currentWord1.join(''));
         console.log(randWord.split());
     }
+
 
 }
 
