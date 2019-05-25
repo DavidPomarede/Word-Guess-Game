@@ -22,13 +22,6 @@ function clearArray2() {
     return list2 = [];
 }
 
-document.getElementById('openKeyboard').addEventListener('click', function(){
-    var inputElement = document.getElementById('hiddenInput');
-    inputElement.style.visibility = 'visible'; // unhide the input
-    inputElement.focus(); // focus on it so keyboard pops
-    inputElement.style.visibility = 'hidden'; // hide it again
-});
-
 
 var game = function () {
 
@@ -52,6 +45,7 @@ var game = function () {
 
     function hangManReset() {
         hangCount = [];
+    //     document.getElementByCla("hangManCLass").setAttribute("class", "invisibleClass");
     }
 
     for (var k = 0; k < randWord.length; k++) {
@@ -99,6 +93,7 @@ var game = function () {
         }
 
         if (guessesLeft === 0) {
+            hangManReset();
             document.getElementById("message").innerHTML = 'You lost! the word was: ' + letters.join('');
             losses++;
             document.getElementById('losses').innerHTML = 'losses: ' + losses;
@@ -106,11 +101,12 @@ var game = function () {
             audio3.play();
             clearArray1();
             clearArray2();
-            hangManReset();
+
             newGame();
         }
 
         if (currentWord1.join('') == randWord) {
+            hangManReset();
             wins++;
             document.getElementById('wins').innerHTML = 'wins: ' + wins;
             document.getElementById('message').innerHTML = 'You won! You guessed: ' + letters.join('');
@@ -118,7 +114,7 @@ var game = function () {
             audio1.play();
             clearArray1();
             clearArray2();
-            hangManReset();
+
             newGame();
             
         }
@@ -132,3 +128,13 @@ var game = function () {
 
 
 game();
+
+
+$(document).ready(function() {
+    $("#playBit").on("click", function() {
+        audio1.play();
+    });
+});
+
+
+window.location.reload();

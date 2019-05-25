@@ -1,0 +1,10 @@
+.invisibleClass {
+    visibility: hidden;
+}
+.visibleClass {
+    visibility: visible;
+}
+div {
+    color: aquamarine;
+    font-family: 'Permanent Marker', cursive;
+}
