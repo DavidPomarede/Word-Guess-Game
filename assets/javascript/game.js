@@ -26,7 +26,8 @@ function clearArray2() {
 var game = function () {
 
 
-    var words = ["old", "town", "road", "horse", "cyrus", "nasx", "tractor"]
+
+    var words = ["old", "town", "road", "horse", "cyrus", "lilnasx", "tractor", "attached", "ride", ]
     var randWord = words[Math.floor(Math.random() * words.length)];
     var letters = randWord.split('');
     var currentWord1 = [];
@@ -45,7 +46,17 @@ var game = function () {
 
     function hangManReset() {
         hangCount = [];
-    //     document.getElementByCla("hangManCLass").setAttribute("class", "invisibleClass");
+        document.getElementById("hangman1").setAttribute("class", "invisibleClass");
+        document.getElementById("hangman2").setAttribute("class", "invisibleClass");
+        document.getElementById("hangman3").setAttribute("class", "invisibleClass");
+        document.getElementById("hangman4").setAttribute("class", "invisibleClass");
+        document.getElementById("hangman5").setAttribute("class", "invisibleClass");
+        document.getElementById("hangman6").setAttribute("class", "invisibleClass");
+        document.getElementById("hangman7").setAttribute("class", "invisibleClass");
+        document.getElementById("hangman8").setAttribute("class", "invisibleClass");
+        document.getElementById("hangman9").setAttribute("class", "invisibleClass");
+        document.getElementById("hangman10").setAttribute("class", "invisibleClass");
+
     }
 
     for (var k = 0; k < randWord.length; k++) {
@@ -57,6 +68,10 @@ var game = function () {
     }
 
     document.getElementById('attemptsLeft').innerHTML = guessesLeft;
+
+
+
+
 
     document.onkeyup = function (event) {
 
