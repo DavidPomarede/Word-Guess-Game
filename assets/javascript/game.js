@@ -25,8 +25,6 @@ function clearArray2() {
 
 var game = function () {
 
-
-
     var words = ["old", "town", "road", "horse", "cyrus", "lilnasx", "tractor", "attached", "ride", ]
     var randWord = words[Math.floor(Math.random() * words.length)];
     var letters = randWord.split('');
@@ -34,8 +32,6 @@ var game = function () {
     var lettersGuessed = [];
     var guessesLeft = 10;
     var letterCount = letters.length;
-    var correctGuess = 0;
-    list2 = [0];
     var hangCount = [];
 
     function hangMan() {
@@ -43,6 +39,9 @@ var game = function () {
         var hangmanTally = "hangman" + hangCount;
         document.getElementById(hangmanTally).setAttribute("class", "visibleClass");
     }
+
+// I kept trying to replace this function with a "for" loop, but it ended up screwing things up
+// so I kept hangManReset function as follows:
 
     function hangManReset() {
         hangCount = [];
@@ -56,7 +55,6 @@ var game = function () {
         document.getElementById("hangman8").setAttribute("class", "invisibleClass");
         document.getElementById("hangman9").setAttribute("class", "invisibleClass");
         document.getElementById("hangman10").setAttribute("class", "invisibleClass");
-
     }
 
     for (var k = 0; k < randWord.length; k++) {
@@ -69,10 +67,6 @@ var game = function () {
 
     document.getElementById('attemptsLeft').innerHTML = guessesLeft;
 
-
-
-
-
     document.onkeyup = function (event) {
 
         var userGuess = event.key;
@@ -82,7 +76,6 @@ var game = function () {
             for (var i = 0; i < letterCount; i++) {
                 if (letters[i] === userGuess) {
                     currentWord1[i] = userGuess;
-                    correctGuess++;
                     guessesLeft--;
                     document.getElementById('currentWord').innerHTML = currentWord1.join(' ');
                     document.getElementById('attemptsLeft').innerHTML = guessesLeft;
@@ -90,6 +83,7 @@ var game = function () {
                     hangMan();
                 }
             }
+
         } else {
             if (lettersGuessed.indexOf(userGuess) == -1) {
                 lettersGuessed.push(userGuess);
@@ -136,20 +130,6 @@ var game = function () {
         console.log(currentWord1.join(''));
         console.log(randWord.split());
     }
-
-
 }
 
-
-
 game();
-
-
-$(document).ready(function() {
-    $("#playBit").on("click", function() {
-        audio1.play();
-    });
-});
-
-
-window.location.reload();
